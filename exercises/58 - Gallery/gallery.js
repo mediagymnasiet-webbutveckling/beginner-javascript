@@ -1,24 +1,27 @@
 function Gallery(gallery) {
   if (!gallery) {
-    throw new Error('No Gallery Found!');
+    throw new Error('Gallery does not exist');
   }
-  // select the elements we need
+  // Select the elements we need
   const images = Array.from(gallery.querySelectorAll('img'));
+  console.log(images);
+
+  // Select modal
   const modal = document.querySelector('.modal');
-  const prevButton = modal.querySelector('.prev');
-  const nextButton = modal.querySelector('.next');
+  const prevButton = document.querySelector('.prev');
+  const nextButton = document.querySelector('.next');
   let currentImage;
 
   function openModal() {
-    console.info('Opening Modal...');
-    // First check if the modal is already open
+    console.info('Opening modal...');
+    // First check if if the modal is already open
     if (modal.matches('.open')) {
-      console.info('Madal already open');
-      return; // stop the function from running
+      console.log('Modal is already open');
+      return;
     }
     modal.classList.add('open');
 
-    // Event listeners to be bound when we open the modal:
+    // Event listeners to be bound when we open the modal
     window.addEventListener('keyup', handleKeyUp);
     nextButton.addEventListener('click', showNextImage);
     prevButton.addEventListener('click', showPrevImage);
@@ -26,13 +29,16 @@ function Gallery(gallery) {
 
   function closeModal() {
     modal.classList.remove('open');
-    // TODO: add event listeners for clicks and keyboard..
+    // TODO: Add eventlistener for clicks and keyboard
     window.removeEventListener('keyup', handleKeyUp);
     nextButton.removeEventListener('click', showNextImage);
     prevButton.removeEventListener('click', showPrevImage);
   }
 
   function handleClickOutside(e) {
+    console.log(`e target${e.target}`);
+    console.log(`e currentTarget${e.currentTarget}`);
+
     if (e.target === e.currentTarget) {
       closeModal();
     }
@@ -47,25 +53,27 @@ function Gallery(gallery) {
   function showNextImage() {
     showImage(currentImage.nextElementSibling || gallery.firstElementChild);
   }
+
   function showPrevImage() {
     showImage(currentImage.previousElementSibling || gallery.lastElementChild);
+
   }
+
 
   function showImage(el) {
     if (!el) {
-      console.info('no image to show');
+      console.info('No image to show');
       return;
     }
-    // update the modal with this info
-    console.log(el);
+    // Update the modal with this image and info
     modal.querySelector('img').src = el.src;
     modal.querySelector('h2').textContent = el.title;
     modal.querySelector('figure p').textContent = el.dataset.description;
     currentImage = el;
     openModal();
   }
+  // These are our eventlisteners
 
-  // These are our Event Listeners!
   images.forEach(image =>
     image.addEventListener('click', e => showImage(e.currentTarget))
   );
@@ -83,9 +91,11 @@ function Gallery(gallery) {
   });
 
   modal.addEventListener('click', handleClickOutside);
+
+
 }
 
 // Use it on the page
-
 const gallery1 = Gallery(document.querySelector('.gallery1'));
 const gallery2 = Gallery(document.querySelector('.gallery2'));
+
