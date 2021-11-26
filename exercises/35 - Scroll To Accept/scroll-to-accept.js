@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const terms = document.querySelector('.terms-and-conditions');
 const watch = document.querySelector('.watch');
 const button = document.querySelector('.accept');
@@ -17,3 +18,5 @@ const ob = new IntersectionObserver(obCallback, {
 });
 
 ob.observe(terms.lastElementChild);
+=======
+>>>>>>> ee3bf6f8359f1de6c6a484a5af137fee75f68a4a

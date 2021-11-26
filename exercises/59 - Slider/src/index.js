@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function Slider(slider) {
   if (!(slider instanceof Element)) {
     throw new Error('No slider!');
@@ -63,3 +64,5 @@ function Slider(slider) {
 
 const mySlider = Slider(document.querySelector('.slider'));
 const dogSlider = Slider(document.querySelector('.dog-slider'));
+=======
+>>>>>>> ee3bf6f8359f1de6c6a484a5af137fee75f68a4a

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function wait(ms = 0) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -98,3 +99,5 @@ async function go() {
 
 go();
   
+=======
+>>>>>>> ee3bf6f8359f1de6c6a484a5af137fee75f68a4a

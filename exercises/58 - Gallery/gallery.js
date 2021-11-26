@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function Gallery(gallery) {
   if (!gallery) {
     throw new Error('Gallery does not exist');
@@ -99,3 +100,5 @@ function Gallery(gallery) {
 const gallery1 = Gallery(document.querySelector('.gallery1'));
 const gallery2 = Gallery(document.querySelector('.gallery2'));
 
+=======
+>>>>>>> ee3bf6f8359f1de6c6a484a5af137fee75f68a4a
